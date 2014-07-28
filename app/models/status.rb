@@ -19,15 +19,15 @@ class Status < ActiveRecord::Base
 
   end
 
-  # def self.post(body)
-  #   status = TwitterSession.post("statuses/update", {status: body})
-  #
-  #   Status.create!(
-  #     twitter_status_id: status["id_str"],
-  #     twitter_user_id: status["user"]["id_str"],
-  #     body: status["text"]
-  #   )
-  # end
+  def self.post(body)
+    status = TwitterSession.post("statuses/update", {status: body})
+
+    Status.create!(
+      twitter_status_id: status["id_str"],
+      twitter_user_id: status["user"]["id_str"],
+      body: status["text"]
+    )
+  end
 
 
 
